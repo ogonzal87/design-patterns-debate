@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito+Sans:400,600,700,800,900&display=swap');
+@import url("https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
+
+:root {
+  --red: #C62714;
+  --redish: #F47A6C;
+  --blue: #1860D4;
+  --white: #E9E9E8;
+  --black: #0E121F;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: radial-gradient(45.22% 45.22% at 50% 34.94%, rgba(14, 18, 31, 0.92) 0%, #0E121F 100%);
+  width: 100%;
+  min-height: 100vh;
+  color: var(--white)
+}
+
+.debate-picker__container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.debate-picker__heading {
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 5vw;
+  text-align: center;
+  letter-spacing: 0.365em;
+  text-shadow: 0 8px 16px rgba(0, 0, 0, .1);
+}
+
+.debate-selector__form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.debate-picker__container .debate-selector__form label {
+  color: var(--black);
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 12px;
+  line-height: 22px;
+  letter-spacing: 0.10rem;
+  font-family: 'Nunito Sans', sans-serif;
+  color: var(--white);
+}
+
+.debate-picker__container .debate-selector__form input {
+  padding: 16px;
+  border: 0;
+  height: 48px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  background: var(--white);
+  color: var(--black);
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 16px;
+  line-height: 22px;
+  letter-spacing: 0.10rem;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+.debate-picker__container .debate-selector__form button {
+  border: 0;
+  padding: 0 16px;
+  justify-content: space-between;
+  cursor: pointer;
+  height: 48px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  background: var(--red);
+  color: #ffffff;
+  text-transform: uppercase;
+  font-weight: 900;
+  font-size: 14px;
+  line-height: 22px;
+  letter-spacing: 0.365em;
+  font-family: 'Nunito Sans', sans-serif;
+  margin-left: auto;
+  order: 2;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.patterns-container {
+  padding: 5rem 2rem;
+  margin: 0 auto;
+  display: flex;
+  align-items: fl;
+  flex-direction: row;
+  max-width: 1400px;
+  justify-content: space-around;
+}
+
+.button--primary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
