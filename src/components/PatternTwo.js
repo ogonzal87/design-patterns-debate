@@ -2,6 +2,7 @@ import React from "react"
 import ProsForm from "./ProsForm"
 import ConsForm from "./ConsForm"
 import base from "../base";
+import patternTwoImg from "../css/images/pattern-2.gif"
 
 class PatternTwo extends React.Component {
     descriptionRef = React.createRef()
@@ -40,7 +41,7 @@ class PatternTwo extends React.Component {
         const { descriptionRef } = this
         const vote = {
             date: new Date().toJSON().slice(0, 10),
-            description: descriptionRef.value.value
+            // description: descriptionRef.current.value || ""
         }
         // 1. Take a copy of the existing state
         const votes = { ...this.state.votes };
@@ -56,7 +57,7 @@ class PatternTwo extends React.Component {
         const { proDescriptionRef } = this
         const pro = {
             date: new Date().toJSON().slice(0, 10),
-            description: proDescriptionRef.value.value
+            description: proDescriptionRef.current.value
         }
         // 1. Take a copy of the existing state
         const pros = { ...this.state.pros };
@@ -73,7 +74,7 @@ class PatternTwo extends React.Component {
         const { conDescriptionRef } = this
         const con = {
             date: new Date().toJSON().slice(0, 10),
-            description: conDescriptionRef.value.value
+            description: conDescriptionRef.current.value
         }
         // 1. Take a copy of the existing state
         const cons = { ...this.state.cons };
@@ -87,27 +88,31 @@ class PatternTwo extends React.Component {
 
     render() {
         return (
-            <div>
-                <img className="image2" src="https://via.placeholder.com/300.png/09f/fff" alt="" />
+            <div className="pattern-container">
+                <img className="pattern-img" src={patternTwoImg} alt="" />
+                <p>This pattern allows you to make use of existing patterns for dealing with parent to child groups of actions. </p>
                 <form onSubmit={this.addVote}>
-                    <textarea
+                    {/* <textarea
                         ref={this.descriptionRef}
-                        placeholder="Description"></textarea>
-                    <button>
-                        <i className="fa fa-chevron-up fa-3x meeting-voting-up-arrow"></i>
+                        placeholder="Description">
+                    </textarea>*/}
+                    <button className="pattern-vote-button">
+                        <i className="fa fa-chevron-up fa-2x meeting-voting-up-arrow"></i>
                         <h1>{this.state.votes ? Object.keys(this.state.votes).length : 0}</h1>
                     </button>
                 </form>
 
-                <ProsForm
-                    addPro={this.addPro}
-                    pros={this.state.pros}
-                    proDescriptionRef={this.proDescriptionRef} />
+                <div className="pros-cons-container">
+                    <ProsForm
+                        addPro={this.addPro}
+                        pros={this.state.pros}
+                        proDescriptionRef={this.proDescriptionRef} />
 
-                <ConsForm
-                    addCon={this.addCon}
-                    cons={this.state.cons}
-                    conDescriptionRef={this.conDescriptionRef} />
+                    <ConsForm
+                        addCon={this.addCon}
+                        cons={this.state.cons}
+                        conDescriptionRef={this.conDescriptionRef} />
+                </div>
             </div>
         )
     }
@@ -115,12 +120,3 @@ class PatternTwo extends React.Component {
 }
 
 export default PatternTwo;
-
-
-// <ul>
-//                     {
-//                         Object.keys(this.state.votes).map(key => (
-//                             <Observation key={key} details={this.state.votes[key]} />
-//                         ))
-//                     }
-//                 </ul>

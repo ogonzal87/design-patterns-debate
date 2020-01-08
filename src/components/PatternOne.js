@@ -2,6 +2,7 @@ import React from "react"
 import ProsForm from "./ProsForm"
 import ConsForm from "./ConsForm"
 import base from "../base";
+import patternOneImg from "../css/images/pattern-1.gif"
 
 class PatternOne extends React.Component {
     descriptionRef = React.createRef();
@@ -37,10 +38,11 @@ class PatternOne extends React.Component {
     // }
 
     addVote = (e) => {
+        e.preventDefault();
         const { descriptionRef } = this
         const vote = {
             date: new Date().toJSON().slice(0, 10),
-            description: descriptionRef.value.value
+            // description: descriptionRef.current.value || ""
         }
         // 1. Take a copy of the existing state
         const votes = { ...this.state.votes };
@@ -48,7 +50,7 @@ class PatternOne extends React.Component {
         votes[`vote${Date.now()}`] = vote
         // 3. Set the new fishes object to state
         this.setState({ votes });
-        e.preventDefault();
+
         e.currentTarget.reset()
     }
 
@@ -56,7 +58,7 @@ class PatternOne extends React.Component {
         const { proDescriptionRef } = this
         const pro = {
             date: new Date().toJSON().slice(0, 10),
-            description: proDescriptionRef.value.value
+            description: proDescriptionRef.current.value
         }
         // 1. Take a copy of the existing state
         const pros = { ...this.state.pros };
@@ -69,11 +71,10 @@ class PatternOne extends React.Component {
     }
 
     addCon = (e) => {
-        e.preventDefault();
         const { conDescriptionRef } = this
         const con = {
             date: new Date().toJSON().slice(0, 10),
-            description: conDescriptionRef.value.value
+            description: conDescriptionRef.current.value
         }
         // 1. Take a copy of the existing state
         const cons = { ...this.state.cons };
@@ -81,52 +82,40 @@ class PatternOne extends React.Component {
         cons[`con${Date.now()}`] = con
         // 3. Set the new fishes object to state
         this.setState({ cons });
-
+        e.preventDefault();
         e.currentTarget.reset()
     }
 
     render() {
-        console.log(this.state.votes)
         return (
-            <div>
-                <img className="image1" src="https://via.placeholder.com/300.png/09f/fff" alt="" />
+            <div className="pattern-container">
+                <img className="pattern-img" src={patternOneImg} alt="" />
+                <p>This pattern makes use of navigation with in a bottom sheet and allows you to drill down into parent to child groups of actions.</p>
                 <form onSubmit={this.addVote}>
-                    <textarea
+                    {/*<textarea
                         ref={this.descriptionRef}
                         placeholder="Description">
-                    </textarea>
-                    <button>
-                        <i className="fa fa-chevron-up fa-3x meeting-voting-up-arrow"></i>
+                    </textarea>*/}
+                    <button className="pattern-vote-button">
+                        <i className="fa fa-chevron-up fa-2x meeting-voting-up-arrow"></i>
                         <h1>{this.state.votes ? Object.keys(this.state.votes).length : 0}</h1>
                     </button>
                 </form>
 
-                <ProsForm
-                    addPro={this.addPro}
-                    pros={this.state.pros}
-                    proDescriptionRef={this.proDescriptionRef} />
+                <div className="pros-cons-container">
+                    <ProsForm
+                        addPro={this.addPro}
+                        pros={this.state.pros}
+                        proDescriptionRef={this.proDescriptionRef} />
 
-                <ConsForm
-                    addCon={this.addCon}
-                    cons={this.state.cons}
-                    conDescriptionRef={this.conDescriptionRef} />
+                    <ConsForm
+                        addCon={this.addCon}
+                        cons={this.state.cons}
+                        conDescriptionRef={this.conDescriptionRef} />
+                </div>
             </div>
         )
     }
 }
 
 export default PatternOne;
-
-
-
-
-
-// <button onClick={this.loadSamples}>Load Samples</button>
-
-// <ul>
-//                     {
-//                         Object.keys(this.state.votes).map(key => (
-//                             <Observation key={key} details={this.state.votes[key]} />
-//                         ))
-//                     }
-//                 </ul>

@@ -2,7 +2,7 @@ import Rebase from "re-base";
 import firebase from "firebase";
 
 const firebaseApp = firebase.initializeApp({
-  apiKey: "AIzaSyD_mBV3uu-T75WjE1Vn3dXkgn9RVCn7WEQ",
+  apiKey: "",
   authDomain: "pattern-debate.firebaseapp.com",
   databaseURL: "https://pattern-debate.firebaseio.com",
   projectId: "pattern-debate",

@@ -2,16 +2,16 @@ import React, { Fragment } from "react";
 import { getFunName } from "../helpers";
 
 class DebatePicker extends React.Component {
-  myInput = React.createRef();
+  debateNameRef = React.createRef();
 
-  goToDebate = event => {
+  goToFileUploader = event => {
     const { history } = this.props;
     // 1. Stop the form from Submitting automatically
     event.preventDefault();
     // 2. Get text from the Input
-    const pathName = this.myInput.value.value;
+    const pathName = this.debateNameRef.current.value;
     // 3. Change the page to /debate/whatever-they-entered
-    history.push(`/debate/${pathName}`);
+    history.push(`/debate/${pathName}/files-upload`);
   };
 
   render() {
@@ -19,10 +19,10 @@ class DebatePicker extends React.Component {
       <Fragment>
         <div className="debate-picker__container">
           <h1 className="debate-picker__heading">DESIGN PATTERN DEBATES</h1>
-          <form className="debate-selector__form" onSubmit={this.goToDebate}>
+          <form className="debate-selector__form" onSubmit={this.goToFileUploader}>
             <label>Debate Name</label>
             <input
-              ref={this.myInput}
+              ref={this.debateNameRef}
               type="text"
               required
               placeholder="Debate Name"
