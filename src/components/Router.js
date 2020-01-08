@@ -9,7 +9,7 @@ const Router = () => (
   <BrowserRouter>
     <Switch>
       <Route exact path="/" component={DebatePicker}></Route>
-      <Route path="/debate/:id/files-upload" component={FileUploader}></Route>
+      <Route path="/debate/:id/files-uploader" component={FileUploader}></Route>
       <Route path="/debate/:id" component={App}></Route>
       <Route component={NotFound}></Route>
     </Switch>

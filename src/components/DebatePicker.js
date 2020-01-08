@@ -9,9 +9,9 @@ class DebatePicker extends React.Component {
     // 1. Stop the form from Submitting automatically
     event.preventDefault();
     // 2. Get text from the Input
-    const pathName = this.debateNameRef.current.value;
+    const pathName = this.debateNameRef.value.defaultValue;
     // 3. Change the page to /debate/whatever-they-entered
-    history.push(`/debate/${pathName}/files-upload`);
+    history.push(`/debate/${pathName}/files-uploader`);
   };
 
   render() {
