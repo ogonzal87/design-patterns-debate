@@ -6,7 +6,7 @@ const firebaseApp = firebase.initializeApp({
   authDomain: "pattern-debate.firebaseapp.com",
   databaseURL: "https://pattern-debate.firebaseio.com",
   projectId: "pattern-debate",
-  storageBucket: "pattern-debate.appspot.com",
+  storageBucket: "gs://pattern-debate.appspot.com/",
   messagingSenderId: "1090469049830",
   appId: "1:1090469049830:web:00c529ebd8a9ba15011227",
   measurementId: "G-59CX3PK3K2"

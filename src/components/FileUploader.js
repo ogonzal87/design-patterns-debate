@@ -1,31 +1,34 @@
 import React from "react";
 import firebase from "firebase";
-import base from "../base";
 
 class FileUploader extends React.Component {
     patternOneUploadRef = React.createRef();
     patternTwoUploadRef = React.createRef();
 
     state = {
-
+        storageRef1Name: '',
+        storageRef2Name: '',
     }
 
     goToDebate = event => {
         event.preventDefault();
-        const { history } = this.props;
-        const pathName = "something"; // TODO: need to figure out the routing so that it goes from file-uploader to the debate.
+        const { history, match } = this.props;
+        const pathName = match.params.id;
 
         // Get file
-        let file1 = this.patternOneUploadRef.value.files[0];
-        let file2 = this.patternTwoUploadRef.value.files[0];
+        console.log(this.patternOneUploadRef)
+        let file1 = this.patternOneUploadRef.current.files[0];
+        let file2 = this.patternTwoUploadRef.current.files[0];
         // Create storage ref
         let storageRef1 = firebase.storage().ref(`${pathName}/${file1.name}`);
         let storageRef2 = firebase.storage().ref(`${pathName}/${file2.name}`);
+        this.setState({ storageRef1Name: file1.name });
+        this.setState({ storageRef2Name: file2.name });
         // Upload file
         storageRef1.put(file1);
         storageRef2.put(file2);
 
-        history.push(`/${pathName}`);
+        history.replace(`/debate/${pathName}`);
     }
 
     render() {
@@ -33,7 +36,6 @@ class FileUploader extends React.Component {
             <form onSubmit={this.goToDebate}>
                 <div>
                     <h1>Pattern One</h1>
-                    {/*<progress value="0" max="100" id="patternOneUploadRef">0%</progress>*/}
                     <input
                         ref={this.patternOneUploadRef}
                         type="file"

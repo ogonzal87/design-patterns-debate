@@ -2,7 +2,6 @@ import React from "react"
 import ProsForm from "./ProsForm"
 import ConsForm from "./ConsForm"
 import base from "../base";
-import patternTwoImg from "../css/images/pattern-2.gif"
 
 class PatternTwo extends React.Component {
     descriptionRef = React.createRef()
@@ -89,7 +88,7 @@ class PatternTwo extends React.Component {
     render() {
         return (
             <div className="pattern-container">
-                <img className="pattern-img" src={patternTwoImg} alt="" />
+                <img className="pattern-img" src={this.props.img} alt="" />
                 <p>This pattern allows you to make use of existing patterns for dealing with parent to child groups of actions. </p>
                 <form onSubmit={this.addVote}>
                     {/* <textarea

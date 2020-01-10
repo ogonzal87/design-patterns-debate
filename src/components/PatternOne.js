@@ -2,7 +2,6 @@ import React from "react"
 import ProsForm from "./ProsForm"
 import ConsForm from "./ConsForm"
 import base from "../base";
-import patternOneImg from "../css/images/pattern-1.gif"
 
 class PatternOne extends React.Component {
     descriptionRef = React.createRef();
@@ -31,6 +30,8 @@ class PatternOne extends React.Component {
             context: this,
             state: "cons"
         })
+        console.log(this.props.img)
+
     }
 
     // componentWillUnmount() {
@@ -89,7 +90,7 @@ class PatternOne extends React.Component {
     render() {
         return (
             <div className="pattern-container">
-                <img className="pattern-img" src={patternOneImg} alt="" />
+                <img className="pattern-img" src={this.props.img} alt="" />
                 <p>This pattern makes use of navigation with in a bottom sheet and allows you to drill down into parent to child groups of actions.</p>
                 <form onSubmit={this.addVote}>
                     {/*<textarea
