@@ -9,8 +9,9 @@ export default class ProsForm extends React.Component {
     return (
       <div>
         <form className="" onSubmit={this.props.addPro}>
-          <input ref={this.props.proDescriptionRef} required />
-          <button className="og-button og-button--primary og-button--s">Add Pro</button>
+          <label>Pro</label> <br />
+          <input className="pro-cons-input" ref={this.props.proDescriptionRef} required />
+          <button className="add-comment-btn">+ Pro</button>
         </form>
         <ul>
           {

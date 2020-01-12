@@ -10,8 +10,9 @@ export default class ConsForm extends React.Component {
     return (
       <div>
         <form className="" onSubmit={this.props.addCon}>
-          <input ref={this.props.conDescriptionRef} required />
-          <button className="og-button og-button--primary og-button--s">Add Con</button>
+          <label>Con</label> <br />
+          <input className="pro-cons-input" ref={this.props.conDescriptionRef} required />
+          <button className="add-comment-btn">+ Con</button>
         </form>
         <ul>
           {

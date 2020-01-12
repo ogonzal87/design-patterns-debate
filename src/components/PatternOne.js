@@ -2,6 +2,7 @@ import React from "react"
 import ProsForm from "./ProsForm"
 import ConsForm from "./ConsForm"
 import base from "../base";
+import upArrowSVG from "../css/images/up-arrow-black.svg";
 
 class PatternOne extends React.Component {
     descriptionRef = React.createRef();
@@ -90,16 +91,18 @@ class PatternOne extends React.Component {
     render() {
         return (
             <div className="pattern-container">
+                <h1>Pattern One</h1>
                 <img className="pattern-img" src={this.props.img} alt="" />
-                <p>This pattern makes use of navigation with in a bottom sheet and allows you to drill down into parent to child groups of actions.</p>
                 <form onSubmit={this.addVote}>
                     {/*<textarea
                         ref={this.descriptionRef}
                         placeholder="Description">
                     </textarea>*/}
-                    <button className="pattern-vote-button">
-                        <i className="fa fa-chevron-up fa-2x meeting-voting-up-arrow"></i>
-                        <h1>{this.state.votes ? Object.keys(this.state.votes).length : 0}</h1>
+                    <button className="pattern-vote-button1">
+                        {this.state.votes ? Object.keys(this.state.votes).length : 0} &nbsp;
+                        <span>
+                            <img src={upArrowSVG} alt="" />
+                        </span>
                     </button>
                 </form>
 

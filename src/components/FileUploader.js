@@ -1,5 +1,10 @@
 import React from "react";
 import firebase from "firebase";
+import thumbSVG from "../css/images/thumb.svg";
+import starsBlueSVG from "../css/images/stars-blue.svg";
+import arrowRightSVG from "../css/images/right-arrow.svg";
+import starsSVG from "../css/images/stars.svg";
+import soleStarSVG from "../css/images/sole-star.svg";
 
 class FileUploader extends React.Component {
     patternOneUploadRef = React.createRef();
@@ -33,24 +38,39 @@ class FileUploader extends React.Component {
 
     render() {
         return (
-            <form onSubmit={this.goToDebate}>
-                <div>
-                    <h1>Pattern One</h1>
-                    <input
-                        ref={this.patternOneUploadRef}
-                        type="file"
-                        name="patternOneUploadFile" />
-                </div>
-                <div>
-                    <h1>Pattern Two</h1>
-                    {/*<progress value="0" max="100" id="patternTwoUploadRef">0%</progress>*/}
-                    <input
-                        ref={this.patternTwoUploadRef}
-                        type="file"
-                        name="patternTwoUploadFile" />
-                </div>
-                <button type="submit">Upload files</button>
-            </form>
+            <section className="file-uploader">
+                <form onSubmit={this.goToDebate}>
+                    <div className="file-uploader__pattern-two">
+                        <h4>Pattern Two</h4>
+                        <input
+                            className="file-uploader__pattern-two__btn"
+                            ref={this.patternOneUploadRef}
+                            type="file"
+                            required
+                            name="patternOneUploadFile" />
+                    </div>
+                    <h3>VS</h3>
+                    <div className="file-uploader__pattern-one">
+                        <h4>Pattern One</h4>
+                        <input
+                            className="file-uploader__pattern-one__btn"
+                            ref={this.patternTwoUploadRef}
+                            required
+                            type="file"
+                            name="patternTwoUploadFile" />
+                    </div>
+                    <button className="file-uploader__submit-btn" type="submit">
+                        Start debating &nbsp;
+                        <img src={arrowRightSVG} alt="" />
+                    </button>
+                </form>
+                <img className="file-uploader__thumb-svg" src={thumbSVG} alt="" />
+                <img className="file-uploader__stars-blue-svg" src={starsBlueSVG} alt="" />
+                <img className="file-uploader__stars1-svg" src={starsSVG} alt="" />
+                <img className="file-uploader__stars2-svg" src={starsSVG} alt="" />
+                <img className="file-uploader__sole-star-svg" src={soleStarSVG} alt="" />
+
+            </section>
         )
     }
 }
