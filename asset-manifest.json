@@ -1,6 +1,13 @@
 {
-  "main.css": "static/css/main.512cf0f2.css",
-  "main.css.map": "static/css/main.512cf0f2.css.map",
-  "main.js": "static/js/main.c3ca3c5d.js",
-  "main.js.map": "static/js/main.c3ca3c5d.js.map"
+  "main.css": "static/css/main.790803a7.css",
+  "main.css.map": "static/css/main.790803a7.css.map",
+  "main.js": "static/js/main.0f76d95a.js",
+  "main.js.map": "static/js/main.0f76d95a.js.map",
+  "static/media/right-arrow.svg": "static/media/right-arrow.fd2dfb7c.svg",
+  "static/media/sole-star.svg": "static/media/sole-star.fa01bbd2.svg",
+  "static/media/stars-blue.svg": "static/media/stars-blue.3c749c87.svg",
+  "static/media/stars.svg": "static/media/stars.900a6762.svg",
+  "static/media/thumb.svg": "static/media/thumb.be9c8c56.svg",
+  "static/media/up-arrow-black.svg": "static/media/up-arrow-black.e2b190df.svg",
+  "static/media/up-arrow-white.svg": "static/media/up-arrow-white.3335016e.svg"
 }
